@@ -1,0 +1,86 @@
+// Function to perform addition
+global proc float add(float $a, float $b) {
+    return $a + $b;
+}
+
+// Function to perform subtraction
+global proc float subtract(float $a, float $b) {
+    return $a - $b;
+}
+
+// Function to perform division
+global proc float divide(float $a, float $b) {
+    if ($b != 0) {
+        return $a / $b;
+    } else {
+        error("Division by zero is not allowed.");
+    }
+}
+
+// Function to perform multiplication
+global proc float multiply(float $a, float $b) {
+    return $a * $b;
+}
+
+// Function to calculate power
+global proc float power(float $base, float $exponent) {
+    return pow($base, $exponent);
+}
+
+// Function to calculate mean
+global proc float mean(float $numbers[]) {
+    float $sum = 0;
+    int $count = size($numbers);
+    
+    for ($num in $numbers) {
+        $sum += $num;
+    }
+    
+    return $sum / $count;
+}
+
+// Function to calculate median
+global proc float median(float $numbers[]) {
+    int $count = size($numbers);
+    
+    // Sort the array
+    float $sortedNumbers[] = `sort $numbers`;
+    
+    // If the count is odd, return the middle element
+    if ($count % 2 == 1) {
+        return $sortedNumbers[($count - 1) / 2];
+    } else {
+        // If the count is even, return the average of the two middle elements
+        int $midIndex1 = ($count / 2) - 1;
+        int $midIndex2 = $count / 2;
+        return ($sortedNumbers[$midIndex1] + $sortedNumbers[$midIndex2]) / 2;
+    }
+}
+
+// Main function to perform operations based on operator and parameters
+global proc float calculator(string $operator, float $parameters[]) {
+    if ($operator == "add") {
+        return add($parameters[0], $parameters[1]);
+    } else if ($operator == "subtract") {
+        return subtract($parameters[0], $parameters[1]);
+    } else if ($operator == "divide") {
+        return divide($parameters[0], $parameters[1]);
+    } else if ($operator == "multiply") {
+        return multiply($parameters[0], $parameters[1]);
+    } else if ($operator == "power") {
+        return power($parameters[0], $parameters[1]);
+    } else if ($operator == "mean") {
+        return mean($parameters);
+    } else if ($operator == "median") {
+        return median($parameters);
+    } else {
+        error("Invalid operator. Supported operators: add, subtract, divide, multiply, power, mean, median.");
+    }
+}
+
+// Array in $parameters add, sub, etc uses first two $num1, $num2 - mean/median uses all 5
+string $operator = "add"; // Change the operator as needed
+float $parameters[] = {6, 9, 3, 4, 2}; // Change the parameters as needed
+float $result = calculator($operator, $parameters);
+print("Result: " + $result);
+

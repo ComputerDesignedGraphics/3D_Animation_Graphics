@@ -1,0 +1,93 @@
+//ADD
+global proc float add(float $num1, float $num2)
+{
+    return $num1 + $num2;
+}
+
+//SUBTRACT
+global proc float subtract(float $num1, float $num2)
+{
+    return $num1 - $num2;
+}
+
+//DIVIDE
+global proc float divide(float $num1, float $num2)
+{
+    if ($num2 == 0)
+    {
+        error "Division by zero is not allowed.";
+        return 0;
+    }
+    return $num1 / $num2;
+}
+
+
+//MULTIPLY
+global proc float multiply(float $num1, float $num2)
+{
+    return $num1 * $num2;
+}
+
+
+
+
+
+
+
+//CALCULATIONS
+global proc float calculator(string $operator, float $params[])
+{
+    float $result = 0;
+    
+    if ($operator == "add")
+    {
+        for ($i = 0; $i < size($params); $i++)
+        {
+            $result = add($result, $params[$i]);
+        }
+    }
+    else if ($operator == "subtract")
+    {
+        for ($i = 0; $i < size($params); $i++)
+        {
+            $result = subtract($result, $params[$i]);
+        }
+    }
+    else if ($operator == "divide")
+    {
+        if (size($params) != 2)
+        {
+            error "Division requires exactly two parameters.";
+            return 0;
+        }
+        $result = divide($params[0], $params[1]);
+    }
+    
+    else
+    {
+        error "Invalid operator. Use 'add', 'subtract', or 'divide'.";
+    }
+    
+    return $result;
+}
+
+//ARRAY
+float $params[] = {2.0, 2.0}; // <---ENTER PARAMETERS HERE
+string $operator = "add"; // Enter add subtract divide 
+
+float $result = calculator($operator, $params);
+print("Your calculation: ");
+
+//PRINT SHOWING THE PARAMETERS AND OPERATOR USED FINALLY RESULT
+string $message = "  ";
+for ($i = 0; $i < size($params); $i++)
+{
+    $message += $params[$i];
+    if ($i < size($params) - 1)
+    {
+        $message += " " + $operator + " ";
+    }
+}
+$message += " = " + $result;
+print($message);
+
