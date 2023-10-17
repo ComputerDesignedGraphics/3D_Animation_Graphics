@@ -1,0 +1,86 @@
+global proc calculator() {
+    // Check if the window exists and delete if necessary
+    if(`window -exists myCalculatorWindow`) {
+        deleteUI -window myCalculatorWindow;
+    }
+
+    // Create the main window
+    window -title "The Spockulator" -widthHeight 300 300 myCalculatorWindow;
+
+    // Main layout
+    columnLayout -adjustableColumn true;
+
+    // Text fields for input
+    textField -placeholderText "First Number " firstNumber;
+    textField -placeholderText "Second Number " secondNumber;
+
+
+
+    // Buttons to perform operations
+    button -label "Add" -command "performOperation(\"add\")";
+    button -label "Subtract" -command "performOperation(\"subtract\")";
+    button -label "Multiply" -command "performOperation(\"multiply\")";
+    button -label "Divide" -command "performOperation(\"divide\")";
+    button -label "Square Root" -command "performOperation(\"sqrt\")";
+    button -label "Exponent" -command "performOperation(\"exponentiate\")"; // New button for exponentiation
+
+    // Label to display the result
+    text -label "" -align "center" resultLabel;
+
+    // Display the window
+    showWindow myCalculatorWindow;
+}
+
+global proc performOperation(string $operation) {
+    // Retrieve the values from the text fields
+    float $num1 = `textField -query -text firstNumber`;
+    float $num2 = `textField -query -text secondNumber`;
+
+    float $result = 0;
+    string $resultText = "";
+
+    // Perform the chosen operation
+    switch($operation) {
+        case "add":
+            $result = $num1 + $num2;
+            $resultText = ("Result: " + $result);
+            break;
+        case "subtract":
+            $result = $num1 - $num2;
+            $resultText = ("Result: " + $result);
+            break;
+        case "multiply":
+            $result = $num1 * $num2;
+            $resultText = ("Result: " + $result);
+            break;
+        case "divide":
+            if($num2 != 0) {
+                $result = $num1 / $num2;
+                $resultText = ("Result: " + $result);
+            } else {
+                $resultText = "Error: Division by zero";
+            }
+            break;
+        case "sqrt":
+            if($num1 >= 0) {
+                $result = `sqrt $num1`;
+                $resultText = ("Result: " + $result);
+            } else {
+                $resultText = "Error: Negative number";
+            }
+            break;
+        case "exponentiate":
+            // Calculate $num1 raised to the power of $num2
+            $result = pow($num1, $num2);
+            $resultText = ("Result: " + $result);
+            break;
+        default:
+            $resultText = "Error: Unknown operation";
+    }
+
+    // Update the result label
+    text -edit -label $resultText resultLabel;
+}
+
+// Call the calculator procedure to create the UI
+calculator();

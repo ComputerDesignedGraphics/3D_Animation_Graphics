@@ -1,0 +1,98 @@
+global proc createCalculatorUI()
+{
+if (`window -exists calculatorWindow`) {
+    deleteUI calculatorWindow;
+}
+
+    window -title "Calculator" -widthHeight 300 300 calculatorWindow;
+    columnLayout -adjustableColumn true;
+    
+    text -label "Select Operation:";
+
+    string $operations[] = {"Add", "Subtract", "Divide", "Power", "Mean", "Median"};
+    optionMenu operationMenu;
+    for ($op in $operations)
+        menuItem -label $op;
+
+    textField -tx "" paramsField;
+
+    rowLayout -numberOfColumns 26 -columnWidth3 100 100 100;
+    button -label " 1 " -c "appendToInputField(1)";
+    button -label " 2 " -c "appendToInputField(2)";
+    button -label " 3 " -c "appendToInputField(3)";
+    
+    button -label " 4 " -c "appendToInputField(4)";
+    button -label " 5 " -c "appendToInputField(5)";
+    button -label " 6 " -c "appendToInputField(6)";
+    
+    button -label " 7 " -c "appendToInputField(7)";
+    button -label " 8 " -c "appendToInputField(8)";
+    button -label " 9 " -c "appendToInputField(9)";
+    
+    button -label " 0 " -c "appendToInputField(0)";
+
+    button -label " Calculate " -c "calculateFromUI()";
+    button -label " Clear " -c "clearInputField()";
+
+    
+    showWindow calculatorWindow;
+}
+global proc clearInputField()
+{
+    textField -e -tx "" paramsField; // Clear the input field
+    textField -e -tx "" resultField; // Clear the result field (if it exists)
+}
+
+global proc appendToInputField(int $number)
+{
+    string $currentText = `textField -q -tx paramsField`;
+    string $newText = $currentText + $number;
+    textField -e -tx $newText paramsField;
+}
+
+
+// Run the GUI
+createCalculatorUI();
+
+global proc calculateFromUI()
+{
+    // Get the selected operation from the optionMenu
+    string $selectedOperation = `optionMenu -q -v operationMenu`;
+
+    // Get the input parameters from the text field
+    float $param = float(`textField -q -tx paramsField`);
+
+    // Perform the calculation based on the selected operation
+    float $result = 0.0;
+
+    switch ($selectedOperation)
+    {
+        case "Add":
+            $result = $result + $param;
+            break;
+        case "Subtract":
+            $result = $result - $param;
+            break;
+        case "Divide":
+            if ($param != 0.0) // Check for division by zero
+                $result = $result / $param;
+            else
+                error("Division by zero is not allowed.");
+            break;
+        case "Power":
+            $result = pow($result, $param);
+            break;
+        case "Mean":
+            // Implement mean calculation logic
+            break;
+        case "Median":
+            // Implement median calculation logic
+            break;
+        default:
+            error("Invalid Operation");
+            break;
+    }
+
+    // Update the result in the text field
+    textField -e -tx $result paramsField;
+}

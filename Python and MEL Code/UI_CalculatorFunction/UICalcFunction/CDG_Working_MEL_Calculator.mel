@@ -1,0 +1,87 @@
+global proc CG_Calculator() {
+    // Check if the window exists
+    if (`window -exists myCalculatorWindow`) {
+        deleteUI myCalculatorWindow;
+    }
+
+    //Main window
+    window -title "CG Calculator" -widthHeight 300 300 myCalculatorWindow;
+    columnLayout -adjustableColumn true;
+
+    //Input
+    textField -placeholderText "First number" firstNumber;
+    textField -placeholderText "Second number" secondNumber;
+
+    //Buttons
+    button -label "Add" -command "calculateNumbers(1)";
+    button -label "Subtract" -command "calculateNumbers(2)";
+    button -label "Multiply" -command "calculateNumbers(3)";
+    button -label "Divide" -command "calculateNumbers(4)";
+    button -label "Exponent" -command "calculateNumbers(5)";
+    button -label "Mean" -command "calculateNumbers(6)";
+    button -label "Median" -command "calculateNumbers(7)";
+
+    //Results
+    textField -editable false -text "Result" resultField;
+
+    showWindow myCalculatorWindow;
+}
+
+global proc calculateNumbers(int $operation) {
+    // Correcting the commands to query the text fields
+    string $firstString = `textField -query -text firstNumber`;
+    string $secondString = `textField -query -text secondNumber`;
+
+    // Convert the string to float for calculations
+    float $first = (float)$firstString;
+    float $second = (float)$secondString;
+    float $result;
+
+    // Perform the selected operation
+    switch ($operation) {
+        case 1:
+            $result = $first + $second;
+        break;
+        
+        case 2:
+            $result = $first - $second;
+        break;
+
+        case 3:
+            $result = $first * $second;
+        break;
+
+        case 4:
+            if ($second != 0) {
+                $result = $first / $second;
+            } else {
+                confirmDialog -title "Error" -message "Cannot divide by zero.";
+                return;
+            }
+        break;
+
+        case 5:
+            $result = pow($first, $second);
+        break;
+
+        case 6:
+            $result = ($first + $second) / 2.0;
+        break;
+
+        case 7:
+            float $middle[] = sort({$first, $second});
+            if (size($middle) % 2 == 0) {
+                int $midIndex = size($middle) / 2;
+                $result = ($middle[$midIndex - 1] + $middle[$midIndex]) / 2.0;
+            } else {
+                $result = $middle[size($middle) / 2];
+            }
+        break;
+    }
+
+    //Result
+    textField -edit -text ($result + "") resultField; // Convert float to string for the text field
+}
+
+// Initialize the calculator GUI
+CG_Calculator();

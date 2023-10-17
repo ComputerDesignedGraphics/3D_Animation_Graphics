@@ -1,0 +1,48 @@
+if (`window -exists calculatorWindow`) {
+    deleteUI calculatorWindow;
+}
+
+window -title "Highly Illogical Calculator" -widthHeight 250 200 calculatorWindow;
+columnLayout -adjustableColumn true;
+
+textField -editable false -text "" -font "boldLabelFont" calculatorDisplay;
+columnLayout -adjustableColumn true;
+rowLayout -numberOfColumns 16;
+
+button -label " 1 " -command "addToDisplay(1)";
+button -label " 2 " -command "addToDisplay(2)";
+button -label " 3 " -command "addToDisplay(3)";
+button -label " 4 " -command "addToDisplay(4)";
+button -label " 5 " -command "addToDisplay(5)";
+button -label " 6 " -command "addToDisplay(6)";
+button -label " 7 " -command "addToDisplay(7)";
+button -label " 8 " -command "addToDisplay(8)";
+button -label " 9 " -command "addToDisplay(9)";
+button -label "0" -command "addToDisplay(0)";
+
+button -label " + " -command "addToDisplay(+)";
+button -label " - " -command "addToDisplay(-)";
+button -label " * " -command "addToDisplay(*)";
+button -label " / " -command "addToDisplay('/')";
+button -label " C " -command "clearDisplay()";
+button -label " = " -command "calculateResult()";
+
+
+
+
+showWindow calculatorWindow;
+
+global proc addToDisplay(string $char) {
+    string $currentText = `textField -q -text calculatorDisplay`;
+    textField -e -text ($currentText + $char) calculatorDisplay;
+}
+
+global proc clearDisplay() {
+    textField -e -text "" calculatorDisplay;
+}
+
+global proc calculateResult() {
+    string $expression = `textField -q -text calculatorDisplay`;
+    float $result = `eval("float $expression")`;
+    textField -e -text $result calculatorDisplay;
+}

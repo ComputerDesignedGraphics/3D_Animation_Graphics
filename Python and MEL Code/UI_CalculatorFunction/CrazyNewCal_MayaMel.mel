@@ -1,0 +1,64 @@
+global proc createCalculatorUI()
+{
+if (`window -exists calculatorWindow`) {
+    deleteUI calculatorWindow;
+}
+
+    window -title "Calculator" -widthHeight 300 150 calculatorWindow;
+    columnLayout -adjustableColumn true;
+    
+    text -label "Select Operation:";
+
+    string $operations[] = {"Add", "Subtract", "Divide", "Power", "Mean", "Median"};
+    optionMenu operationMenu;
+    for ($op in $operations)
+        menuItem -label $op;
+
+    textField -tx "5.0, 3.0" paramsField;
+    
+    button -label "Calculate" -c "calculateFromUI()";
+    
+    showWindow calculatorWindow;
+}
+
+global proc calculateFromUI()
+{
+string $selectedOperation = `optionMenu -q -v operationMenu`;
+    string $selectedOperation = `textField -q -tx paramsField`;
+
+    string $operation = "";
+    if ($selectedOperation == "Add")
+        $operation = "add";
+    else if ($selectedOperation == "Subtract")
+        $operation = "subtract";
+    else if ($selectedOperation == "Divide")
+        $operation = "divide";
+    else if ($selectedOperation == "Power")
+        $operation = "power";
+    else if ($selectedOperation == "Mean")
+        $operation = "mean";
+    else if ($selectedOperation == "Median")
+        $operation = "median";
+    else
+    {
+        confirmDialog -title "Error" -message "Invalid operation." -button "OK";
+        return;
+    }
+
+    string $paramsStr = `textField -q -tx paramsField`;
+    string $params[] = `tokenize $paramsStr ","`;
+    float $paramsFloat[];
+    
+    for ($param in $params)
+    {
+        $paramsFloat[size($paramsFloat)] = float($param);
+    }
+    
+    float $result = `calculator $operation $paramsFloat`;
+    confirmDialog -title "Result" -message ("Result: " + $result) -button "OK";
+}
+
+// Run the GUI
+createCalculatorUI();
+// Warning:     string $selectedOperation = `textField -q -tx paramsField`;
+// Warning: Line 27.63 : Redeclaration of variable "$selectedOperation" shadows previous declaration at line 26. Previous value will be overwritten by explicit initializer.

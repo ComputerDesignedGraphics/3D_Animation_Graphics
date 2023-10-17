@@ -1,0 +1,54 @@
+global proc createCalculatorUI()
+{
+if (`window -exists calculatorWindow`) {
+    deleteUI calculatorWindow;
+}
+
+    window -title "Calculator" -widthHeight 300 300 calculatorWindow;
+    columnLayout -adjustableColumn true;
+    
+    text -label "Select Operation:";
+
+    string $operations[] = {"Add", "Subtract", "Divide", "Power", "Mean", "Median"};
+    optionMenu operationMenu;
+    for ($op in $operations)
+        menuItem -label $op;
+
+    textField -tx "" paramsField;
+
+    rowLayout -numberOfColumns 26 -columnWidth3 100 100 100;
+    button -label " 1 " -c "appendToInputField(1)";
+    button -label " 2 " -c "appendToInputField(2)";
+    button -label " 3 " -c "appendToInputField(3)";
+    
+    button -label " 4 " -c "appendToInputField(4)";
+    button -label " 5 " -c "appendToInputField(5)";
+    button -label " 6 " -c "appendToInputField(6)";
+    
+    button -label " 7 " -c "appendToInputField(7)";
+    button -label " 8 " -c "appendToInputField(8)";
+    button -label " 9 " -c "appendToInputField(9)";
+    
+    button -label "0" -c "appendToInputField(0)";
+
+    shelfButton
+-annotation "Calculate"
+-label "Calculate"
+-image "button_green.png"
+-command "calculateFromUI()";
+
+    
+    showWindow calculatorWindow;
+}
+
+global proc appendToInputField(int $number)
+{
+    string $currentText = `textField -q -tx paramsField`;
+    string $newText = $currentText + $number;
+    textField -e -tx $newText paramsField;
+}
+
+// The rest of the code (calculateFromUI and calculator functions) remains the same as in the previous example.
+
+// Run the GUI
+createCalculatorUI();
