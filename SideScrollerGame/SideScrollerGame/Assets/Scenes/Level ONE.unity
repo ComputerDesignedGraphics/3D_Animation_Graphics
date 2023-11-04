@@ -3314,6 +3314,7 @@ GameObject:
   - component: {fileID: 763098589}
   - component: {fileID: 763098592}
   - component: {fileID: 763098593}
+  - component: {fileID: 763098594}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3387,7 +3388,6 @@ Transform:
   - {fileID: 1669958383}
   - {fileID: 996828979}
   - {fileID: 1365180891}
-  - {fileID: 1224413573}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &763098592
@@ -3462,6 +3462,41 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!70 &763098594
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763098583}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1, y: 1.4}
+  m_Size: {x: 1, y: 3}
+  m_Direction: 1
 --- !u!1 &780089328
 GameObject:
   m_ObjectHideFlags: 0
@@ -5239,73 +5274,6 @@ Transform:
   - {fileID: 517788030}
   m_Father: {fileID: 826610287}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1224413572
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 2196317170377992979, guid: cf57b0fc2f1cadb46a9ceb0244579335, type: 3}
-  m_PrefabInstance: {fileID: 6780158801131102956}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1224413573}
-  - component: {fileID: 1224413574}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1224413573
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 8178129278368000873, guid: cf57b0fc2f1cadb46a9ceb0244579335, type: 3}
-  m_PrefabInstance: {fileID: 6780158801131102956}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1224413572}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.7247193, y: 1.46, z: -0.060001314}
-  m_LocalScale: {x: 3.5379992, y: 2.432375, z: 3.5379992}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 763098591}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &1224413574
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 3232148636834457172, guid: cf57b0fc2f1cadb46a9ceb0244579335, type: 3}
-  m_PrefabInstance: {fileID: 6780158801131102956}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1224413572}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.018537078, y: -0.07183111}
-  m_Size: {x: 0.56487817, y: 1.1158569}
-  m_Direction: 0
 --- !u!1 &1237335563
 GameObject:
   m_ObjectHideFlags: 0
@@ -9025,7 +8993,8 @@ PrefabInstance:
       value: 1.46
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 0}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6319563257501130952, guid: cf57b0fc2f1cadb46a9ceb0244579335, type: 3}

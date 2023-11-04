@@ -68,13 +68,14 @@ public class CMoveTest : MonoBehaviour
         }
     }
 
-    private void FlipCharacter()
-    {
-        if (horizontalInput > 0)
-            transform.localScale = new Vector3(1, 1, 1);
-        else if (horizontalInput < 0)
-            transform.localScale = new Vector3(-1, 1, 1);
-    }
+ private void FlipCharacter()
+{
+    if (horizontalInput > 0)
+        transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+    else if (horizontalInput < 0)
+        transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
+}
+
 
     private bool IsGrounded()
     {
