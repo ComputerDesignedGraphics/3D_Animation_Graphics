@@ -1,7 +1,4 @@
-//Maya ASCII 2024 scene
-//Name: CDG_Snowman_MEL.ma
-//Last modified: Sat, Sep 30, 2023 12:54:04 PM
-//Codeset: 1252
+
 requires maya "2024";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" -nodeType "aiSkyDomeLight"
 		 -nodeType "aiStandardSurface" -nodeType "aiPhysicalSky" "mtoa" "5.3.1.1";
