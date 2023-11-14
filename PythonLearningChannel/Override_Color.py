@@ -1,24 +1,24 @@
 import maya.cmds as cmds
 
 
-def change_override_color(color_index):
-    # Get the list of currently selected objects
+def assign_unique_color_to_each():
+
     selection = cmds.ls(selection=True)
 
-    # Loop through each selected object
-    for obj in selection:
-        # Find the shape node of the current object
+    color_indices = range(32)  # This creates a list of indices from 0 to 31
+
+    for index, obj in enumerate(selection):
+
         shapes = cmds.listRelatives(obj, shapes=True)
         if not shapes:
-            continue  # If no shapes are found, skip this object
+            continue
 
-        # Loop through each shape node
-        for shape in shapes:
-            # Enable color overriding
+                color_index = color_indices[index % len(color_indices)]
+
+                for shape in shapes:
             cmds.setAttr(shape + '.overrideEnabled', 1)
-            # Set the override color to the specified index
             cmds.setAttr(shape + '.overrideColor', color_index)
 
 
-# Example usage: change the override color to index 6 (blue) for selected objects
-change_override_color(6)
+# Call the function to change colors of selected objects
+assign_unique_color_to_each()
