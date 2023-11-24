@@ -3279,7 +3279,7 @@ Transform:
   m_GameObject: {fileID: 763098583}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.98, y: -3.04, z: 0}
+  m_LocalPosition: {x: -13.98, y: -2.3, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8058,7 +8058,7 @@ Transform:
   m_GameObject: {fileID: 1990092957}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.002998958, w: 0.9999956}
-  m_LocalPosition: {x: -26.2, y: 8.23, z: 0}
+  m_LocalPosition: {x: -17.45, y: 8.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8568,7 +8568,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8287022010109761678, guid: 3bc877f0f2105f544a5629098d7f9dba, type: 3}
       propertyPath: m_TagString
-      value: Ground
+      value: groundLayer
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8651,6 +8651,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PrincessIdleState
       objectReference: {fileID: 0}
+    - target: {fileID: 8390855174590760007, guid: b5c20da5729271547b43242a75c01d10, type: 3}
+      propertyPath: m_TagString
+      value: Objective
+      objectReference: {fileID: 0}
     - target: {fileID: 9167533336716599037, guid: b5c20da5729271547b43242a75c01d10, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.51
@@ -8730,7 +8734,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6699185673213540978, guid: cf57b0fc2f1cadb46a9ceb0244579335, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.04
+      value: -2.3
       objectReference: {fileID: 0}
     - target: {fileID: 6699185673213540978, guid: cf57b0fc2f1cadb46a9ceb0244579335, type: 3}
       propertyPath: m_LocalPosition.z

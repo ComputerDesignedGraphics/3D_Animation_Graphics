@@ -8,6 +8,8 @@ TagManager:
   - groundCheck
   - groundLayer
   - Ladder
+  - Obstacle
+  - Objective
   layers:
   - Default
   - TransparentFX
