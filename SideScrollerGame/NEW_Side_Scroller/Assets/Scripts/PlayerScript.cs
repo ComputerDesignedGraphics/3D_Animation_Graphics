@@ -7,32 +7,38 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
     public Transform groundCheck;
+    public float groundCheckRadius = 0.1f;
     public LayerMask groundLayer;
 
-    private Rigidbody2D rb;
+    private Rigidbody rb;
     private bool isGrounded;
+    private bool canJump = true; // New flag to control jumping
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
         // Check if the player is grounded
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundCheckRadius, groundLayer);
+
+        if (isGrounded && !canJump)
+        {
+            canJump = true; // Reset the jump flag when grounded
+        }
 
         // Handle movement
         float moveDirection = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(moveDirection * moveSpeed, rb.velocity.y);
+        Vector3 movement = new Vector3(moveDirection, 0, 0);
+        rb.velocity = new Vector3(movement.x * moveSpeed, rb.velocity.y, rb.velocity.z);
 
         // Handle jumping
-        if (isGrounded && Input.GetButtonDown("Jump"))
+        if (canJump && isGrounded && Input.GetButtonDown("Jump"))
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
+            canJump = false; // Prevent further jumps until grounded again
         }
     }
 }
-
-
-

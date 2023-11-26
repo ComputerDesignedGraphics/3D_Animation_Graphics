@@ -2,141 +2,89 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private SpriteRenderer spriteRenderer;
-    public Sprite[] runSprites;
-    public Sprite climbSprite;
-    private int spriteIndex;
+    public float moveSpeed = 5f;
+    public float jumpForce = 7f;
+    public Transform groundCheck;
+    public LayerMask groundLayer;
+    public LayerMask wallLayer;
+    public float groundCheckRadius = 0.4f;
+    public float wallCheckDistance = 0.5f;
+    public float wallSlideSpeed = 1f; // Speed at which player slides down the wall
 
-    private new Rigidbody2D rigidbody;
-    private new Collider2D collider;
+    private Rigidbody rb;
+    private bool isGrounded;
+    private bool isTouchingWall;
 
-    private Collider2D[] overlaps = new Collider2D[4];
-    private Vector2 direction;
-
-    private bool grounded;
-    private bool climbing;
-
-    public float moveSpeed = 3f;
-    public float jumpStrength = 4f;
-
-    private void Awake()
+    void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        rigidbody = GetComponent<Rigidbody2D>();
-        collider = GetComponent<Collider2D>();
+        rb = GetComponent<Rigidbody>();
     }
 
-    private void OnEnable()
+    void Update()
     {
-        InvokeRepeating(nameof(AnimateSprite), 1f/12f, 1f/12f);
-    }
+        Move();
+        Flip();
 
-    private void OnDisable()
-    {
-        CancelInvoke();
-    }
-
-    private void Update()
-    {
-        CheckCollision();
-        SetDirection();
-    }
-
-    private void CheckCollision()
-    {
-        grounded = false;
-        climbing = false;
-
-        // the amount that two colliders can overlap
-        // increase this value for steeper platforms
-        float skinWidth = 0.1f;
-
-        Vector2 size = collider.bounds.size;
-        size.y += skinWidth;
-        size.x /= 2f;
-
-        int amount = Physics2D.OverlapBoxNonAlloc(transform.position, size, 0f, overlaps);
-
-        for (int i = 0; i < amount; i++)
+        if (Input.GetButtonDown("Jump") && isGrounded && !isTouchingWall)
         {
-            GameObject hit = overlaps[i].gameObject;
-
-            if (hit.layer == LayerMask.NameToLayer("Ground"))
-            {
-                // Only set as grounded if the platform is below the player
-                grounded = hit.transform.position.y < (transform.position.y - 0.5f + skinWidth);
-
-                // Turn off collision on platforms the player is not grounded to
-                Physics2D.IgnoreCollision(overlaps[i], collider, !grounded);
-            }
-            else if (hit.layer == LayerMask.NameToLayer("Ladder"))
-            {
-                climbing = true;
-            }
+            Jump();
         }
     }
 
-    private void SetDirection()
+    void FixedUpdate()
     {
-        if (climbing) {
-            direction.y = Input.GetAxis("Vertical") * moveSpeed;
-        } else if (grounded && Input.GetButtonDown("Jump")) {
-            direction = Vector2.up * jumpStrength;
-        } else {
-            direction += Physics2D.gravity * Time.deltaTime;
-        }
-
-        direction.x = Input.GetAxis("Horizontal") * moveSpeed;
-
-        // Prevent gravity from building up infinitely
-        if (grounded) {
-            direction.y = Mathf.Max(direction.y, -1f);
-        }
-
-        if (direction.x > 0f) {
-            transform.eulerAngles = Vector3.zero;
-        } else if (direction.x < 0f) {
-            transform.eulerAngles = new Vector3(0f, 180f, 0f);
-        }
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundCheckRadius, groundLayer);
+        CheckForWall();
     }
 
-    private void FixedUpdate()
+    private void Move()
     {
-        rigidbody.MovePosition(rigidbody.position + direction * Time.fixedDeltaTime);
+        float move = Input.GetAxis("Horizontal");
+
+        if (isTouchingWall)
+        {
+            move = 0; // Stop horizontal movement when touching a wall
+            WallSlideControl(); // Control wall sliding
+        }
+
+        rb.velocity = new Vector3(move * moveSpeed, rb.velocity.y, 0);
     }
 
-    private void AnimateSprite()
+    private void Flip()
     {
-        if (climbing)
+        if (rb.velocity.x > 0.1)
         {
-            spriteRenderer.sprite = climbSprite;
+            transform.localScale = new Vector3(1, 1, 1);
         }
-        else if (direction.x != 0f)
+        else if (rb.velocity.x < -0.1)
         {
-            spriteIndex++;
-
-            if (spriteIndex >= runSprites.Length) {
-                spriteIndex = 0;
-            }
-
-            if (spriteIndex > 0 && spriteIndex <= runSprites.Length) {
-                spriteRenderer.sprite = runSprites[spriteIndex];
-            }
+            transform.localScale = new Vector3(-1, 1, 1);
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void Jump()
     {
-        if (collision.gameObject.CompareTag("Objective"))
+        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+    }
+
+    private void CheckForWall()
+    {
+        isTouchingWall = Physics.Raycast(transform.position, Vector3.right, wallCheckDistance, wallLayer)
+                       || Physics.Raycast(transform.position, Vector3.left, wallCheckDistance, wallLayer);
+    }
+
+    private void WallSlideControl()
+    {
+        if (rb.velocity.y < -wallSlideSpeed)
         {
-            enabled = false;
-            FindObjectOfType<GameManager>().LevelComplete();
-        }
-        else if (collision.gameObject.CompareTag("Obstacle"))
-        {
-            enabled = false;
-            FindObjectOfType<GameManager>().LevelFailed();
+            rb.velocity = new Vector3(rb.velocity.x, -wallSlideSpeed, 0); // Control slide speed
         }
     }
 
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, transform.position + Vector3.right * wallCheckDistance);
+        Gizmos.DrawLine(transform.position, transform.position + Vector3.left * wallCheckDistance);
+    }
 }
