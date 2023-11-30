@@ -8,7 +8,7 @@ public class WIRD_AniController : MonoBehaviour
     public Animator animator;
     private readonly int idle = Animator.StringToHash("Idle");
     private readonly int walk = Animator.StringToHash("Walk");
-    private readonly int jump = Animator.StringToHash("Jump");
+    private readonly int jump = Animator.StringToHash("JumpUP");
 
     private void Update()
     {

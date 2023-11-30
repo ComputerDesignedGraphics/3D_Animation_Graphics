@@ -90,10 +90,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, transform.position + Vector3.right * wallCheckDistance);
-        Gizmos.DrawLine(transform.position, transform.position + Vector3.left * wallCheckDistance);
-    }
+    //void OnDrawGizmosSelected()
+    //{
+    //    Gizmos.color = Color.red;
+    //    Gizmos.DrawLine(transform.position, transform.position + Vector3.right * wallCheckDistance);
+    //    Gizmos.DrawLine(transform.position, transform.position + Vector3.left * wallCheckDistance);
+    //}
 }
