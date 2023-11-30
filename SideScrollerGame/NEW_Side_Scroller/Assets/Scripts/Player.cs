@@ -11,12 +11,14 @@ public class Player : MonoBehaviour
     public float wallCheckDistance = 0.5f;
     public float wallSlideSpeed = 1f; // Speed at which player slides down the wall
 
+    private Animator animator;
     private Rigidbody rb;
     private bool isGrounded;
     private bool isTouchingWall;
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
     }
 
@@ -54,13 +56,20 @@ public class Player : MonoBehaviour
     {
         if (rb.velocity.x > 0.1)
         {
+            animator.SetBool("IsMoving", true);
             transform.localScale = new Vector3(1, 1, 1);
         }
         else if (rb.velocity.x < -0.1)
         {
+            animator.SetBool("IsMoving", true);
             transform.localScale = new Vector3(-1, 1, 1);
         }
+        else
+        {
+            animator.SetBool("IsMoving", false);
+        }
     }
+
 
     private void Jump()
     {
