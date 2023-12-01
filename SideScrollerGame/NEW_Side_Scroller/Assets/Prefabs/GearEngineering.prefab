@@ -56,6 +56,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GearEngineering
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: efe4c9c856f1c864797c8b8774d79612, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: efe4c9c856f1c864797c8b8774d79612, type: 3}
+      propertyPath: m_TagString
+      value: PowerUp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -66,6 +74,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: efe4c9c856f1c864797c8b8774d79612, type: 3}
       insertIndex: -1
       addedObject: {fileID: 773601644199306072}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: efe4c9c856f1c864797c8b8774d79612, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9135132079696439598}
   m_SourcePrefab: {fileID: 100100000, guid: efe4c9c856f1c864797c8b8774d79612, type: 3}
 --- !u!1 &285622669227268920 stripped
 GameObject:
@@ -114,3 +125,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.7710994, y: 1.7710987, z: 0.45230627}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &9135132079696439598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285622669227268920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b5c6724b6e2bc34a8ca0ff6d1c2a240, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUpType: 0

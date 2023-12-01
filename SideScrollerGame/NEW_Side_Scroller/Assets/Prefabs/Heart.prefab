@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b78b4a0186b49c943b5baae59e317b98, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.3330688
+      value: -2.8330688
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b78b4a0186b49c943b5baae59e317b98, type: 3}
       propertyPath: m_LocalRotation.w
@@ -54,7 +54,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b78b4a0186b49c943b5baae59e317b98, type: 3}
       propertyPath: m_Name
-      value: HeartHealth
+      value: Heart
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b78b4a0186b49c943b5baae59e317b98, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b78b4a0186b49c943b5baae59e317b98, type: 3}
+      propertyPath: m_TagString
+      value: PowerUp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -66,6 +74,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b78b4a0186b49c943b5baae59e317b98, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2758557059347523821}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b78b4a0186b49c943b5baae59e317b98, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3606013378634107920}
   m_SourcePrefab: {fileID: 100100000, guid: b78b4a0186b49c943b5baae59e317b98, type: 3}
 --- !u!1 &3948070596713488925 stripped
 GameObject:
@@ -114,3 +125,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.5820924, y: 1.338892, z: 0.4456674}
   m_Center: {x: 0, y: 0.000000029802322, z: -0.00000020116568}
+--- !u!114 &3606013378634107920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3948070596713488925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b5c6724b6e2bc34a8ca0ff6d1c2a240, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUpType: 0
