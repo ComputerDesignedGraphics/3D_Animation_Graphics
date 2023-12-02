@@ -8,7 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Black
-    second: {fileID: 3831287572762450851, guid: 89e8071dd1d70574fb65870162ca2ec7, type: 3}
+    second: {fileID: -733369970977010918, guid: cda4ba5dd43f6524eba4776d1ea7ed9a, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Chrome
+    second: {fileID: 2100000, guid: 124e415f695937347af08511159d4111, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

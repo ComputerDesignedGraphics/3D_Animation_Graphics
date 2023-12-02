@@ -16,6 +16,8 @@ public class PlayerInventory : MonoBehaviour
     public int NumberOfGears { get; private set; }
     public int NumberOfBeakers { get; private set; }
 
+    public HMG_Slider HMG_Slider; // Reference to HMG_Slider script
+
     public void CollectPowerUp(PowerUpType powerUpType)
     {
         switch (powerUpType)
@@ -36,19 +38,27 @@ public class PlayerInventory : MonoBehaviour
     public void HeartCollected()
     {
         NumberOfHearts++;
-        // Add any specific logic for when a heart is collected
+        IncreaseHealth();
     }
 
     public void GearCollected()
     {
         NumberOfGears++;
-        // Add any specific logic for when a gear is collected
+        IncreaseHealth();
     }
 
     public void BeakerCollected()
     {
         NumberOfBeakers++;
-        // Add any specific logic for when a beaker is collected
+        IncreaseHealth();
+    }
+
+    private void IncreaseHealth()
+    {
+        if (HMG_Slider != null && HMG_Slider.slider.value <= 90)
+        {
+            HMG_Slider.slider.value += 10; // Increase health slider by 10
+        }
     }
 
     // Add other methods for different power-up types
