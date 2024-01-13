@@ -1,0 +1,1 @@
+This concept is to have a seed drill make a hole, plant a seed, water it - pots will rotate around the base/and or even have the arm rotate - so much to choose from.  Sooooooo many ideas brewing.
