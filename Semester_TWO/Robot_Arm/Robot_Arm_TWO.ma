@@ -1,6 +1,6 @@
 //Maya ASCII 2023 scene
 //Name: Robot_Arm_TWO.ma
-//Last modified: Wed, Jan 17, 2024 09:41:46 PM
+//Last modified: Wed, Jan 17, 2024 09:48:01 PM
 //Codeset: 1252
 requires maya "2023";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" -nodeType "aiSkyDomeLight"
@@ -11,18 +11,18 @@ fileInfo "product" "Maya 2023";
 fileInfo "version" "2023";
 fileInfo "cutIdentifier" "202211021031-847a9f9623";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 22621)";
-fileInfo "UUID" "F2D9C4B3-4E34-E152-52C2-A895E2220D72";
+fileInfo "UUID" "05A80B3B-4FED-FC07-ECEE-C5A5741EF71F";
 createNode transform -s -n "persp";
 	rename -uid "E8BE576F-46B3-1538-7411-9BB600485E80";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 32.288973785597356 45.826186865028951 -0.99204729739393671 ;
-	setAttr ".r" -type "double3" 338.39999999905251 -993.19999999998174 2.8488614574894732e-14 ;
+	setAttr ".t" -type "double3" 33.127402540767946 41.721511154842169 -5.4651368729501062 ;
+	setAttr ".r" -type "double3" 345.59999999922047 -983.20000000000414 0 ;
 	setAttr ".rpt" -type "double3" 1.0817102499089756e-15 -1.6233288246187895e-16 1.1653861920976842e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "6DCF439D-41F4-39B6-EFD0-AFB8AFEF81E6";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 40.125179636278162;
+	setAttr ".coi" 40.125179636283605;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -23132,20 +23132,20 @@ createNode aiSkyDomeLight -n "aiSkyDomeLightShape1" -p "aiSkyDomeLight1";
 	setAttr ".rcsh" no;
 	setAttr ".aal" -type "attributeAlias" {"exposure","aiExposure"} ;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "35971313-4610-DC59-F1BD-58882379237E";
+	rename -uid "4A8B4B5D-4B57-2EF9-F7B6-52A9AFBD13FE";
 	setAttr -s 20 ".lnk";
 	setAttr -s 20 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "96109A20-4CE8-1F00-6208-D59EF86F2328";
+	rename -uid "7EEB6CAD-4BBD-0B9F-6962-BF83BD797293";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "1E2E77A2-4C90-23AE-36F6-8891444E7BF7";
+	rename -uid "F3747E42-443D-D703-9B9F-579A9AE230A8";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "B998CE5A-49CB-FE36-6195-9DAE54AF4E70";
+	rename -uid "501BAF17-4BE4-72AE-ED88-B8AC69A17F52";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "418177B1-42C9-2129-84A7-7C835A9FBA9D";
 	setAttr ".ufem" -type "stringArray" 0  ;
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "172995B5-451F-7052-E0E1-D7A59D02CCE7";
+	rename -uid "8DF253C6-431E-2AB3-0C07-F6BC2B13E9E7";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "79AAB2A1-4811-6840-5849-BD8656DA6B06";
 	setAttr ".g" yes;
@@ -23156,7 +23156,7 @@ createNode aiOptions -s -n "defaultArnoldRenderOptions";
 	setAttr ".manualdevs" yes;
 	setAttr ".rndev[0]"  1;
 	setAttr ".version" -type "string" "5.2.1.1";
-	setAttr ".ARV_options" -type "string" "Test Resolution=100%;Camera=perspShape;Color Management.Gamma=1;Color Management.Exposure=0;Background.BG=BG Color;Background.Color=0 0 0;Background.Image=;Background.Scale=1 1;Background.Offset=0 0;Background.Apply Color Management=1;Foreground.Enable FG=0;Foreground.Image=;Foreground.Scale=1 1;Foreground.Offset=0 0;Foreground.Apply Color Management=1;";
+	setAttr ".ARV_options" -type "string" "Test Resolution=100%;Camera=perspShape;Color Management.Gamma=1;Color Management.Exposure=0;Background.BG=BG Color;Background.Color=0 0 0;Background.Image=;Background.Scale=1  1;Background.Offset=0  0;Background.Apply Color Management=1;Foreground.Enable FG=0;Foreground.Image=;Foreground.Scale=1  1;Foreground.Offset=0  0;Foreground.Apply Color Management=1;";
 createNode aiAOVFilter -s -n "defaultArnoldFilter";
 	rename -uid "6179B484-4C18-4108-19D9-EFA9269A333E";
 	setAttr ".ai_translator" -type "string" "gaussian";

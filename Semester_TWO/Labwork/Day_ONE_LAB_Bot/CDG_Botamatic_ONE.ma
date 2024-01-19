@@ -1,6 +1,6 @@
 //Maya ASCII 2023 scene
-//Name: CDG_Botamatic.ma
-//Last modified: Fri, Jan 19, 2024 11:46:14 AM
+//Name: CDG_Botamatic_ONE.ma
+//Last modified: Fri, Jan 19, 2024 11:46:25 AM
 //Codeset: 1252
 requires maya "2023";
 requires "stereoCamera" "10.0";
@@ -12,7 +12,7 @@ fileInfo "product" "Maya 2023";
 fileInfo "version" "2023";
 fileInfo "cutIdentifier" "202211021031-847a9f9623";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 22621)";
-fileInfo "UUID" "7C9ABBDF-4865-BCCD-DCF0-029FAC140010";
+fileInfo "UUID" "A35D1CBD-4B8E-A3E8-46E3-7C9BF08CAAB3";
 createNode transform -s -n "persp";
 	rename -uid "EBB779B0-44CB-7CFD-F701-378E7642E03F";
 	setAttr ".v" no;
@@ -78201,4 +78201,4 @@ connectAttr "groupId584.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId585.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId586.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId587.msg" ":initialShadingGroup.gn" -na;
-// End of CDG_Botamatic.ma
+// End of CDG_Botamatic_ONE.ma
