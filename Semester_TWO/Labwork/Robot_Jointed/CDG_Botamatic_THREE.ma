@@ -1,6 +1,6 @@
 //Maya ASCII 2023 scene
-//Name: CDG_Botamatic_TWO.ma
-//Last modified: Fri, Feb 02, 2024 11:29:16 AM
+//Name: CDG_Botamatic_THREE.ma
+//Last modified: Fri, Feb 02, 2024 11:42:24 AM
 //Codeset: 1252
 requires maya "2023";
 requires "stereoCamera" "10.0";
@@ -12,22 +12,22 @@ fileInfo "product" "Maya 2023";
 fileInfo "version" "2023";
 fileInfo "cutIdentifier" "202211021031-847a9f9623";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 22621)";
-fileInfo "UUID" "A5FFAA6A-4D28-E30F-844D-EB862E735426";
+fileInfo "UUID" "30C7F786-499E-7199-7FFC-E693E138FF94";
 createNode transform -s -n "persp";
 	rename -uid "EBB779B0-44CB-7CFD-F701-378E7642E03F";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -5.1642238227346269 12.721524254922377 33.830689692546308 ;
-	setAttr ".r" -type "double3" -9.6000000000018577 -1097.1999999998638 2.0809083035198583e-16 ;
+	setAttr ".t" -type "double3" 0.40806658459798306 12.352706042434807 31.979896057709293 ;
+	setAttr ".r" -type "double3" -5.4000000000911221 -1437.1999999999803 0 ;
 	setAttr ".rpt" -type "double3" -1.9080144931478039e-15 -1.2446119474292942e-15 3.6748435406315886e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "EC9C5DC4-41EA-2F94-8363-38AE44DE07EA";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 38.173143440688143;
+	setAttr ".coi" 30.8354325532137;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
-	setAttr ".tp" -type "double3" 3.9869091489458413 2.8405381937186061 0.022667146078590272 ;
+	setAttr ".tp" -type "double3" -0.00055386835155932235 13.78575055169288 -0.019081564390099337 ;
 	setAttr ".hc" -type "string" "viewSet -p %camera";
 	setAttr ".ai_translator" -type "string" "perspective";
 createNode transform -s -n "top";
@@ -78827,4 +78827,4 @@ connectAttr "groupId658.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId659.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId660.msg" ":initialShadingGroup.gn" -na;
 connectAttr "groupId661.msg" ":initialShadingGroup.gn" -na;
-// End of CDG_Botamatic_TWO.ma
+// End of CDG_Botamatic_THREE.ma
