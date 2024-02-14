@@ -1,1 +1,0 @@
-zBrushing new work on Raa from 1967.  Strange things happened when I imported the Flower into zBrush, it didn't handle it well at all.  Photoshoped an image now adding it for reference in zBrush
