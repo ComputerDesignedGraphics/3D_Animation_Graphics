@@ -9,17 +9,15 @@ public class CoRoutineBehaviour : MonoBehaviour
 	public IntData counterNum;
 	public float seconds = 3.0f;	
 	private WaitForSeconds wfsObj;
-	private WaitForFixedUpdate wffoObj;
+	private WaitForFixedUpdate wffuObj;
 
 	private void Start()
 	{
 		wfsObj = new WaitForSeconds(seconds);
-		wffoObj = new WaitForFixedUpdate();
+		wffuObj = new WaitForFixedUpdate();
 		startEvent.Invoke();
 	}
 
-
-	
 	public void StartCounting ()
 {
 	StartCoroutine(Counting());
@@ -27,9 +25,6 @@ public class CoRoutineBehaviour : MonoBehaviour
 
     private IEnumerator Counting()
     {
-
-		
-		
 		
 		startCountEvent.Invoke();
 			yield return wfsObj;
