@@ -1,5 +1,7 @@
 import maya.cmds as cmds
 
+selected_joints = cmds.ls(selection=True,type='joint')
+
 def create_control_and_group(joint_name):
     # Query the joint's position
     joint_position = cmds.xform(joint_name, query=True, worldSpace=True, translation=True)
@@ -18,7 +20,16 @@ def create_control_and_group(joint_name):
 
     return control, group
 
+
+
+
+
 # Example usage
 joint_name = "joint1"  # Specify the joint's name here
 control, group = create_control_and_group(joint_name)
 print(f"Control: {control}, Group: {group}")
+
+
+for joint in selected_joints:
+    create_control_and_group(joint)
+    print(joint)
