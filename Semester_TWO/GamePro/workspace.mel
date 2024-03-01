@@ -62,6 +62,7 @@ workspace -fr "PARASOLID_ATF" "data";
 workspace -fr "IGES_ATF" "data";
 workspace -fr "teClipExports" "Time Editor/Clip Exports";
 workspace -fr "ASS" "data";
+workspace -fr "Substance" "data";
 workspace -fr "audio" "sound";
 workspace -fr "USD Import" "data";
 workspace -fr "Alembic" "data";
