@@ -1,9 +1,54 @@
 fileFormatVersion: 2
-guid: b6730b64949cc8c4598b4edde7810cc8
+guid: 553ac2de7e2c551418bf73d95ff71bd1
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BlueChrome
+    second: {fileID: -3673484367209512739, guid: ef8c11bfea46e0b4a9a1637579158b7b, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Chrome
+    second: {fileID: -3673484367209512739, guid: ef8c11bfea46e0b4a9a1637579158b7b, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: JustBlack
+    second: {fileID: -733369970977010918, guid: ef8c11bfea46e0b4a9a1637579158b7b, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Left_REEL
+    second: {fileID: 6606439672636609401, guid: ef8c11bfea46e0b4a9a1637579158b7b, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MainFace
+    second: {fileID: 8173832161236960272, guid: ef8c11bfea46e0b4a9a1637579158b7b, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Reel_RIGHT
+    second: {fileID: -2698846921192508016, guid: ef8c11bfea46e0b4a9a1637579158b7b, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wheel_CENTER
+    second: {fileID: -6909173037024180892, guid: ef8c11bfea46e0b4a9a1637579158b7b, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: aiStandardSurface6
+    second: {fileID: -7573661587976805087, guid: ef8c11bfea46e0b4a9a1637579158b7b, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 5561349426305759274, guid: ef8c11bfea46e0b4a9a1637579158b7b, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
