@@ -1,0 +1,97 @@
+newmtl GenericMesh_V10_1:AR__GenericMeshv3a_GenaricMesh2_lambert5SG
+illum 4
+Kd 1.00 0.47 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl GenericMesh_V10_1:AR__GenericMeshv3a_GenaricMesh_lambert2SG
+illum 4
+Kd 1.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl GenericMesh_V10_1:AR__GenericMeshv3a_lambert3SG
+illum 4
+Kd 0.03 0.81 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl GenericMesh_V10_1:AR__GenericMeshv3a_lambert4SG
+illum 4
+Kd 0.02 0.76 0.85
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl GenericMesh_V10_1:AR__GenericMeshv3a_lambert6SG
+illum 4
+Kd 0.48 0.00 0.60
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl GenericMesh_V10_1:AR__GenericMeshv3a_lambert8SG
+illum 4
+Kd 0.02 0.00 1.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl GenericMesh_V10_1:AR__GenericMeshv3a_yellowDKSG
+illum 4
+Kd 1.00 0.83 0.13
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl GenericMesh_V10_1:PS_1:Quadra_defaultMat
+illum 4
+Kd 0.80 0.80 0.80
+Ka 0.56 0.56 0.56
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl hat:Hat_matSG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd hat_map.jpg
+Ni 1.00
+newmtl pasted__Eye_matSG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd eye_map.jpg
+Ni 1.00
+Ks 0.50 0.50 0.50
+newmtl pasted__cloths_matSG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd cloths.jpg
+bump  -bm 1 cloth_normals.jpg
+Ni 1.00
+newmtl pasted__hairSG
+illum 4
+Kd 0.12 0.12 0.12
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl pasted__skin_matSG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Body_paint.jpg
+Ni 1.00
+newmtl tongue:mouthSG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd mouth_map.jpg
+Ni 1.00
+newmtl tongue:tongue_mateSG
+illum 4
+Kd 0.88 0.43 0.43
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
