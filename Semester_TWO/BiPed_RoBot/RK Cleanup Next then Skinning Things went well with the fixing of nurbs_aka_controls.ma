@@ -1,6 +1,6 @@
 //Maya ASCII 2023 scene
-//Name: RK Complete System Final.ma
-//Last modified: Mon, Apr 08, 2024 09:36:36 PM
+//Name: RK Cleanup Next then Skinning Things went well with the fixing of nurbs_aka_controls.ma
+//Last modified: Mon, Apr 08, 2024 09:35:56 PM
 //Codeset: 1252
 requires maya "2023";
 requires "stereoCamera" "10.0";
@@ -11,7 +11,7 @@ fileInfo "product" "Maya 2023";
 fileInfo "version" "2023";
 fileInfo "cutIdentifier" "202211021031-847a9f9623";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 22631)";
-fileInfo "UUID" "8D2EB057-4C53-7665-1B45-1382BC124163";
+fileInfo "UUID" "091D6CD6-4A13-BDE4-DF09-A989429254FA";
 createNode transform -n "Hidden_Stuff";
 	rename -uid "649CA738-4BF9-5EFD-F938-379C1C121B87";
 	setAttr ".v" no;
@@ -47426,6 +47426,7 @@ createNode cluster -n "cluster15";
 	setAttr ".gm[0]" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
 createNode displayLayer -n "Geometry";
 	rename -uid "C8D90C6B-4C9B-5F77-000D-E3BDD0D2B480";
+	setAttr ".v" no;
 	setAttr ".c" 2;
 	setAttr ".ufem" -type "stringArray" 0  ;
 	setAttr ".do" 6;
@@ -47469,7 +47470,7 @@ createNode reverse -n "Left_Leg_IKFK_Reverse";
 createNode reverse -n "Right_Leg_IKFK_Reverse1";
 	rename -uid "67058466-4337-C019-6CD7-07A0F021941E";
 createNode nodeGraphEditorInfo -n "MayaNodeEditorSavedTabsInfo";
-	rename -uid "5F1FBDF6-48EA-CC2A-AD91-1E91F16E8F65";
+	rename -uid "4B96914F-4453-D929-79A9-2A84120F939F";
 	setAttr ".tgi[0].tn" -type "string" "Untitled_1";
 	setAttr ".tgi[0].vl" -type "double2" -347.37853357496488 -1136.9047167282274 ;
 	setAttr ".tgi[0].vh" -type "double2" 2636.6641568926416 521.42855070886242 ;
@@ -51418,4 +51419,5 @@ connectAttr "Left_Leg_IKFK_Reverse.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "Right_Leg_IKFK_Reverse1.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "ikRPsolver.msg" ":ikSystem.sol" -na;
-// End of RK Complete System Final.ma
+// End of RK Cleanup Next then Skinning Things went well with the fixing of nurbs_aka_controls.ma
+		

@@ -1,6 +1,6 @@
 //Maya ASCII 2023 scene
-//Name: RK Complete System Final.ma
-//Last modified: Mon, Apr 08, 2024 09:36:36 PM
+//Name: RK System Start V4 Right Before Destroying this entire thing because Controls were NEVER zeroed OUT.ma
+//Last modified: Mon, Apr 08, 2024 09:34:29 PM
 //Codeset: 1252
 requires maya "2023";
 requires "stereoCamera" "10.0";
@@ -11,7 +11,7 @@ fileInfo "product" "Maya 2023";
 fileInfo "version" "2023";
 fileInfo "cutIdentifier" "202211021031-847a9f9623";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 22631)";
-fileInfo "UUID" "8D2EB057-4C53-7665-1B45-1382BC124163";
+fileInfo "UUID" "E0E4EF07-4D4E-E748-AA3C-E98CC323F32E";
 createNode transform -n "Hidden_Stuff";
 	rename -uid "649CA738-4BF9-5EFD-F938-379C1C121B87";
 	setAttr ".v" no;
@@ -194,14 +194,14 @@ createNode nurbsCurve -n "nurbsCircleShape1" -p "nurbsCircle1";
 createNode transform -s -n "persp";
 	rename -uid "F84461EA-46E0-5322-B7E4-AFB5D1779713";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 125.58515179256344 249.18838343820966 562.73453481124579 ;
+	setAttr ".t" -type "double3" 97.945138757237828 171.48193316768081 316.31826709697248 ;
 	setAttr ".r" -type "double3" -17.400000000000531 -353.60000000015964 0 ;
 	setAttr ".rpt" -type "double3" 3.0943932370913184e-15 -2.6933965584124251e-15 9.5182614880789493e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "D163A358-446C-2A2B-65C5-FE9A114F6A8D";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 722.58903324705147;
+	setAttr ".coi" 462.73669108236834;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -47426,6 +47426,7 @@ createNode cluster -n "cluster15";
 	setAttr ".gm[0]" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1;
 createNode displayLayer -n "Geometry";
 	rename -uid "C8D90C6B-4C9B-5F77-000D-E3BDD0D2B480";
+	setAttr ".v" no;
 	setAttr ".c" 2;
 	setAttr ".ufem" -type "stringArray" 0  ;
 	setAttr ".do" 6;
@@ -47469,7 +47470,7 @@ createNode reverse -n "Left_Leg_IKFK_Reverse";
 createNode reverse -n "Right_Leg_IKFK_Reverse1";
 	rename -uid "67058466-4337-C019-6CD7-07A0F021941E";
 createNode nodeGraphEditorInfo -n "MayaNodeEditorSavedTabsInfo";
-	rename -uid "5F1FBDF6-48EA-CC2A-AD91-1E91F16E8F65";
+	rename -uid "629692E5-49C1-EA49-9923-82B08C4F2DCE";
 	setAttr ".tgi[0].tn" -type "string" "Untitled_1";
 	setAttr ".tgi[0].vl" -type "double2" -347.37853357496488 -1136.9047167282274 ;
 	setAttr ".tgi[0].vh" -type "double2" 2636.6641568926416 521.42855070886242 ;
@@ -51418,4 +51419,5 @@ connectAttr "Left_Leg_IKFK_Reverse.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "Right_Leg_IKFK_Reverse1.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "ikRPsolver.msg" ":ikSystem.sol" -na;
-// End of RK Complete System Final.ma
+// End of RK System Start V4 Right Before Destroying this entire thing because Controls were NEVER zeroed OUT.ma
+		
