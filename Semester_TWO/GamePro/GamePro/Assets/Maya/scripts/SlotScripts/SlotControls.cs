@@ -2,6 +2,8 @@ using System.Collections;
 using UnityEngine;
 
 public class SlotControls : MonoBehaviour
+
+
 {
     public Rigidbody[] reels;
     public bool spinningBool = false;  // Ensure it's initially set to false
@@ -25,7 +27,7 @@ public class SlotControls : MonoBehaviour
         }
 
         // Calculate stop times
-        float leftReelStop = Random.Range(5f, 7f);
+        float leftReelStop = Random.Range(1.5f, 2.5f);
         float centerReelStop = leftReelStop + Random.Range(1f, 2f);
         float rightReelStop = centerReelStop + Random.Range(1f, 2f);
 
