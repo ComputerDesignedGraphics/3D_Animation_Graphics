@@ -5,7 +5,7 @@ using TMPro;  // Ensure you have this using directive to work with TextMeshPro
 
 public class Payout : MonoBehaviour
 {
-    public int coins = 100; // Starting coins
+    public int coins = 111; // Starting coins
     public TextMeshPro coinDisplay; // Reference to the TextMeshPro component for world space
 
     void Start()

@@ -4,21 +4,39 @@ using UnityEngine;
 
 public class PayoutController : MonoBehaviour
 {
-    public Payout payoutScript;
+    public Payout payoutScript; // Reference to the Payout script that manages the coin count
 
     void Start()
     {
-        // This line resets the coins to 100 at the start of this scene if necessary.
-        payoutScript.coins = 100;
-        payoutScript.UpdateDisplay();
+        payoutScript.coins = 66; // Set starting coins to a number I input or change
+        payoutScript.UpdateDisplay(); // Update the display at the start
+        Debug.Log("PayoutController started: coins set to " + payoutScript.coins);
     }
 
-    // Method to be called when the spin button is pressed.
-    public void OnSpinButtonPressed()
+    // We'll use OnTriggerEnter or OnMouseDown depending on whether we use 3D or 2D
+    private void OnTriggerEnter(Collider other)
+    {
+        TriggerSpin();
+    }
+
+    // Optional: Use this for a 2D setup with BoxCollider2D
+    // private void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     TriggerSpin();
+    // }
+
+    // Optional: Use this if you want the button to be clickable with the mouse in a 3D setup
+    // private void OnMouseDown()
+    // {
+    //     TriggerSpin();
+    // }
+
+    private void TriggerSpin()
     {
         if (payoutScript != null)
         {
-            payoutScript.SpinReels(); // This should decrement the coin by 1 and update the display
+            Debug.Log("Spin button triggered.");
+            payoutScript.SpinReels();
         }
         else
         {
